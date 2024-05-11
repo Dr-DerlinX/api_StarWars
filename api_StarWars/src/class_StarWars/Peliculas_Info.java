@@ -3,15 +3,27 @@ package class_StarWars;
 public class Peliculas_Info {
 
     private String titulo;
-    private String lanzamiento;
+    private String espisodio;
     private String director;
     private String productor;
+    private String lanzamiento;
 
     public Peliculas_Info(){}
 
+    public Peliculas_Info(Pelicula_Record peliculaRecord){
+        this.titulo = peliculaRecord.title();
+        this.espisodio = peliculaRecord.episode_id();
+        this.director = peliculaRecord.director();
+        this.productor = peliculaRecord.producer();
+        this.lanzamiento = peliculaRecord.release_date();
+    }
 
     public String getProductor() {
         return productor;
+    }
+
+    public String getEspisolio() {
+        return espisodio;
     }
 
     public void setProductor(String productor) {
@@ -24,6 +36,10 @@ public class Peliculas_Info {
 
     public void setDirector(String director) {
         this.director = director;
+    }
+
+    public void setEspisolio(String espisolio) {
+        this.espisodio = espisolio;
     }
 
     public String getLanzamiento() {
@@ -45,9 +61,10 @@ public class Peliculas_Info {
     @Override
     public String toString() {
         return "TITULO : " + getTitulo() +", " +
-                "FECHA DE LANZAMINTO" + getLanzamiento() +", " +
-                "DIRECTOR : " + getDirectr() + ", " +
-                "PRODUCTOR : " + getProductor();
+                "ESPISOLIO : " + getEspisolio() + ", " +
+                "DIRECTOR : " + getDirectr() +", " +
+                "PRODUCTOR : " + getProductor() + ", " +
+                "FECHA DE LANZAMIENTO : " + getLanzamiento();
     }
 
 }
