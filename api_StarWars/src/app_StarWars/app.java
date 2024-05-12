@@ -1,25 +1,27 @@
 package app_StarWars;
-import api_StarWars.*;
-import class_StarWars.process_jsom;
 import java.io.IOException;
 import java.util.Scanner;
+import api_StarWars.api_Client;
 
 public class app {
-    static Scanner scanner = new Scanner(System.in);
-
 
     public static void main(String[] args) throws IOException, InterruptedException {
-
         //Aplicacion en proceso
 
-        String op = "3";
-        api_Client.getSolicitud(op);
-        //process_jsom processJsom = new process_jsom();
-        //processJsom.processJson(api_Client.getJson());
+        Scanner scanner = new Scanner(System.in);
+        String op;
+
+        while (true){
+           menu_Opciones();
+           op = scanner.nextLine();
+           api_Client.getSolicitud(op);
+           if (op.equalsIgnoreCase("salir")) break;
+        }
 
     }
 
-    public static void menu_Inicial(){
+    public static void menu_Opciones(){
+
         System.out.println("==Lista de peliculas de Star Wars==");
         System.out.println("= 1 = A new Hope                  =");
         System.out.println("= 2 = The Empire Strikes Back     =");
@@ -30,14 +32,6 @@ public class app {
         System.out.println("===================================");
         System.out.println("========(SALIR) para terminar======");
         System.out.println("===================================");
-    }
-
-    public static void menu_Opciones() throws IOException, InterruptedException {
-
-        api_Client client1 = new api_Client();
-        String opciones;
-
-        System.out.println("SELECIONE LA PELICULA A BUSCAR :");
 
     }
 }
